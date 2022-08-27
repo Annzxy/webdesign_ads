@@ -1,0 +1,18 @@
+#reifen1 {
+  position: absolute;
+  left: 415px;
+  top: 158px;
+  z-index: 11;
+  transform: rotateY(-33deg) skewX(-7deg);
+  -webkit-transform: rotateY(-33deg) skewX(-7deg);
+  -moz-transform: rotateY(-33deg) skewX(-7deg);
+}
+
+#felge1 {
+  height: 45px;
+  width: auto;
+}
+
+.carAds {
+  height: 20vh;
+}
