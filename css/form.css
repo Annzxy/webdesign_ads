@@ -1,0 +1,122 @@
+div.elem-group {
+  margin: 20px 0;
+}
+
+div.elem-group.inlined {
+  width: 49%;
+  display: inline-block;
+  float: left;
+  margin-left: 1%;
+}
+
+label {
+  display: block;
+  font-family: "Nanum Gothic";
+  padding-bottom: 10px;
+  font-size: 1.25em;
+}
+
+input,
+select,
+textarea {
+  border-radius: 2px;
+  border: 2px solid #777;
+  box-sizing: border-box;
+  font-size: 1.25em;
+  font-family: "Nanum Gothic";
+  width: 100%;
+  padding: 10px;
+}
+
+div.elem-group.inlined input {
+  width: 95%;
+  display: inline-block;
+}
+
+textarea {
+  height: 250px;
+}
+
+button {
+  height: 50px;
+  background: rgb(78, 95, 189);
+  border: none;
+  color: rgb(213, 206, 226);
+  font-size: 1.25em;
+  font-family: "Nanum Gothic";
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  border: 2px solid black;
+}
+.inline {
+  width: unset;
+  margin: 0 0.5em 0 0;
+  vertical-align: middle;
+}
+form {
+  width: 100vw;
+  max-width: 1000px;
+  min-width: 500px;
+  margin: 0 auto;
+  padding-bottom: 2em;
+}
+#progress-bar {
+  width: 100%;
+  background-color: #f3f3f3;
+  border: 0;
+  height: 12px;
+  border-radius: 9px;
+}
+.secondPageButtonGroup {
+  display: flex;
+  justify-content: space-between;
+}
+.submitButton {
+  display: flex;
+  justify-content: center;
+}
+
+#summaryTable th,
+#summaryTable td {
+  border: 1px solid black;
+  width: 100%;
+}
+p {
+  font-size: 30px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: rgb(52, 104, 201);
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 15px;
+}
+#summaryTable {
+  display: table;
+  justify-content: center;
+  width: 100%;
+  padding: 30px;
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 300;
+  font-size: 30px;
+  color: rgb(56, 48, 48);
+  border-bottom: solid 1px rgba(22, 59, 179, 0.1);
+  background-color: rgb(143, 182, 219, 0.4);
+  border-top: 3px solid rgb(46, 19, 165, 0.4);
+  table-layout: fixed;
+}
+fieldset {
+  font-family: Comic Sans MS;
+  justify-content: center;
+  display: flex;
+  font-weight: 800;
+  font-size: 15px;
+  color: #142a70;
+  border: none;
+  padding: 1rem 0;
+  border-bottom: 2px solid #131396;
+}

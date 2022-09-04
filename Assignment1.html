@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/ad1.css" />
     <link rel="stylesheet" href="css/ad2.css" />
+    <link rel="stylesheet" href="css/form.css" />
+    <link rel="shortcut icon" href="resource/ICON.png" type="favicon/ico" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"
       integrity="sha512-GQ5/eIhs41UXpG6fGo4xQBpwSEj9RrBvMuKyE2h/2vw3a9x85T1Bt0JglOUVJJLeyIUl/S/kCdDXlE/n7zCjIg=="
@@ -12,24 +14,171 @@
       referrerpolicy="no-referrer"
     ></script>
     <script>
+    
       function startReifen() {
-        reifenTween = new TweenMax("#felge1, #felge2", 0.25, {
-          rotation: "-=360_cw",
+        reifenTween = new TweenMax("#wheel1, #wheel2", 0.75, {
+          rotation: "+=360_cw",
           ease: Linear.easeNone,
           repeat: -1,
         });
 
-        TweenMax.to(reifenTween, 1.0, {
+        TweenMax.to(reifenTween, 2.2, {
           timeScale: 0,
-          delay: 1.1,
-          ease: Back.easeOut.config(0.6),
+          delay: 2.5,
+          ease: Back.easeOut.config(0.5),
         });
         return reifenTween;
       }
+
+      function replay() {
+        let wheel2 = document.querySelector("#wheel2");
+
+        wheel2.style.animationName = "none";
+
+        let wheel1 = document.querySelector("#wheel1");
+
+        wheel1.style.animationName = "none";
+
+        let newModel = document.querySelector(".newModel");
+
+        newModel.style.animationName = "none";
+
+        let car = document.querySelector("#autoContainer");
+
+        car.style.animationName = "none";
+
+        let discount = document.querySelector(".discount");
+
+        discount.style.animationName = "none";
+
+        let call = document.querySelector(".call");
+
+        call.style.animationName = "none";
+
+        let board = document.querySelector(".board");
+
+        board.style.animationName = "none";
+
+        requestAnimationFrame(() => {
+          wheel2.style.animationName = "";
+          wheel1.style.animationName = "";
+          car.style.animationName = "";
+          newModel.style.animationName = "";
+          discount.style.animationName = "";
+          call.style.animationName = "";
+          board.style.animationName = "";
+          startReifen();
+        });
+      }
+
+      var currentDateTime = new Date();
+      var year = currentDateTime.getFullYear();
+      var month = currentDateTime.getMonth() + 1;
+      var date = currentDateTime.getDate() + 1;
+
+      if (date < 10) {
+        date = "0" + date;
+      }
+      if (month < 10) {
+        month = "0" + month;
+      }
+
+      var dateTomorrow = year + "-" + month + "-" + date;
+      var checkinElem = document.querySelector("#checkin-date");
+      var checkoutElem = document.querySelector("#checkout-date");
+
+      checkinElem.setAttribute("min", dateTomorrow);
+
+      checkinElem.onchange = function () {
+        checkoutElem.setAttribute("min", this.value);
+      };
+
+      
+      function myChange()
+        {
+        var y = document.getElementById("myDemo");
+        var showcolor = document.getElementById("color").value;
+        y.style.backgroundColor = showcolor;
+        }
+
+        function goToSecondPage() {
+        document.getElementById("firstPage").style.display = "none";
+        document.getElementById("secondPage").style.display = "block";
+        document.getElementById("thirdPage").style.display = "none";
+        document.getElementById("fourthPage").style.display = "none";
+      }
+      function goToThirdPage() {
+        document.getElementById("firstPage").style.display = "none";
+        document.getElementById("secondPage").style.display = "none";
+        document.getElementById("thirdPage").style.display = "block";
+        document.getElementById("fourthPage").style.display = "none";
+      }
+
+        function goToFirstPage() {
+        document.getElementById("firstPage").style.display = "block";
+        document.getElementById("secondPage").style.display = "none";
+        document.getElementById("thirdPage").style.display = "none";
+        document.getElementById("fourthPage").style.display = "none";
+      }
+      function goToFourthPage() {
+        document.getElementById("firstPage").style.display = "none";
+        document.getElementById("secondPage").style.display = "none";
+        document.getElementById("thirdPage").style.display = "none";
+        document.getElementById("fourthPage").style.display = "block";
+      }
+
+      function submitData() {
+        goToFourthPage();
+        updateTable();
+      }
+
+      function saveToLocalStorage(id)
+      {
+        let element = document.getElementById(id).value;
+        localStorage.setItem(id, element);
+      };
+
+      function fetchElementFromLocalStorage(id) 
+      {
+        return localStorage.getItem(id);
+      };
+
+    function getCapitalizedFirstLetter(word)
+    {
+      return word.charAt(0).toUpperCase().concat(word.slice(1));
+    }
+   function updateTable()
+    {
+      debugger;
+      const arr = ["name", "phone", "email","adult","child","checkin-date","checkout-date","message"];
+
+      var summaryTable = document.getElementById("summaryTable");
+      for(let i =0; i<8; i++){
+        var row = summaryTable.insertRow(i);
+        var fieldName = row.insertCell(0);
+        var fieldValue = row.insertCell(1);
+        fieldName.innerHTML = getCapitalizedFirstLetter(arr[i]);
+        fieldValue.innerHTML =  fetchElementFromLocalStorage(arr[i]);
+      }
+    }
+
     </script>
   </head>
   <body>
-    <h1>Welcome to Orewa Beach!</h1>
+  
+    <div class="waviy">
+    Welcome to
+    <span style="--i:1">O</span>
+   <span style="--i:2">R</span>
+   <span style="--i:3">E</span>
+   <span style="--i:4">W</span>
+   <span style="--i:5">A</span>
+   <span style="--i:6">B</span>
+   <span style="--i:7">E</span>
+   <span style="--i:8">A</span>
+   <span style="--i:9">C</span>
+   <span style="--i:10">H</span>
+  </div>
     <div id="seagull">
       <img src="resource/seagull2.png" alt="seagull" />
     </div>
@@ -49,22 +198,198 @@
               alt="sunrise"
             />
             <div class="name">Xiaoyu Zhou ID 1565763</div>
-            <div class="come">Come and enjoy the view</div>
+            <div class="come">Come and Explore</div>
           </div>
         </a>
       </div>
-      <div class="carAds" style="background-color: red">
-        <button onclick="startReifen()">test</button>
+      <div class="carAds">
+        <button onclick="replay()" id="restartButton">Replay</button>
+        <div>
+          <img src="resource/board.gif" class="board" />
+        </div>
         <div id="autoContainer">
           <div id="reifen1">
-            <img src="resource/felge.png" id="felge1" />
+            <img src="resource/Wheel1.png" id="wheel1" />
           </div>
           <div id="reifen2">
-            <img src="resource/felge.png" id="felge2" />
+            <img src="resource/Wheel2.png" id="wheel2" />
           </div>
-          <img src="resource/auto.png" id="auto" />
+          <div>
+            <img src="resource/Car.png" id="auto" />
+          </div>
         </div>
+        <div class="newModel">New Model</div>
+        <div class="discount">Avaliable Next Month</div>
+        <a href="https://www.toyota.co.nz/new-car/hilux/" target="_blank"><div class="call">Call us Today!</div></a>
+        <div class="name2">Xiaoyu Zhou ID 1565763</div>
       </div>
     </div>
+    <fieldset>
+     <a href="Storyboard-Orewa Ads.pdf" target="_blank">|  Storyboard for Orewa Ads  |</a> 
+      <a href="Storyboard-Motor Ads.pdf" target="_blank"> |  Storyboard for Motor Ads  |</a> 
+      <a href="Wireframes-Booking page.pdf" target="_blank">|  Wireframes for Booking |</a> 
+    </fieldset>
+
+    <form>
+      <div id="firstPage">
+        <label for="progress-bar">Booking progress:</label>
+<progress id="progress-bar" value="0" max="100"> 0% </progress>
+      <div class="elem-group">
+        <label for="name">Your Name</label>
+        <input
+          type="text"
+          id="name"
+          name="visitor_name"
+          placeholder="Ann Zhou"
+          pattern="[A-Z\sa-z]{3,20}"
+          required
+          onchange="saveToLocalStorage(event.target.id)"
+        />
+      </div>
+      <div class="elem-group">
+        <label for="email">Your E-mail</label>
+        <input
+          type="email"
+          id="email"
+          name="visitor_email"
+          placeholder="ann.z@email.com"
+          required
+          onchange="saveToLocalStorage(event.target.id)"
+        />
+      </div>
+      <div class="elem-group">
+        <label for="phone">Your Phone</label>
+        <input
+          type="tel"
+          id="phone"
+          name="visitor_phone"
+          placeholder="498-348-3872"
+          pattern="(\d{3})-?\s?(\d{3})-?\s?(\d{4})"
+          required
+          onchange="saveToLocalStorage(event.target.id)"
+        />
+      </div>
+      <button onclick="goToSecondPage()"> Next  Page</button>
+      <hr />
+    </div>
+    <div id="secondPage">
+      <label for="progress-bar">Booking progress:</label>
+      <progress id="progress-bar" value="33" max="100"> 33% </progress>
+      <div class="elem-group inlined">
+        <label for="adult">Adults</label>
+        <input
+          type="number"
+          id="adult"
+          name="total_adults"
+          placeholder="2"
+          min="1"
+          required
+          onchange="saveToLocalStorage(event.target.id)"
+        />
+      </div>
+      <div class="elem-group inlined">
+        <label for="child">Children</label>
+        <input
+          type="number"
+          id="child"
+          name="total_children"
+          placeholder="2"
+          min="0"
+          required
+          onchange="saveToLocalStorage(event.target.id)"
+        />
+      </div>
+
+      <div class="elem-group inlined">
+        <label for="checkin-date">Check-in Date</label>
+        <input type="date" id="checkin-date" name="checkin" required onchange="saveToLocalStorage(event.target.id)"/>
+      </div>
+      <div class="elem-group inlined">
+        <label for="checkout-date">Check-out Date</label>
+        <input type="date" id="checkout-date" name="checkout" required onchange="saveToLocalStorage(event.target.id)"/>
+      </div>
+      <div class="elem-group">
+        <label
+          ><input type="radio" name="room-type" class="inline" id="suiteWithOcreaView" onchange="saveToLocalStorage(event.target.id)"/> Suite with
+          Ocean View</label
+        >
+        <label
+          ><input type="radio" name="room-type" class="inline" id="superiorSuite" onchange="saveToLocalStorage(event.target.id)"/> Superior
+          Suite</label
+        >
+        <label
+          ><input type="radio" name="room-type" class="inline" id="deluxeDouble" onchange="saveToLocalStorage(event.target.id)"/> Deluxe Double
+          or Twin Room</label
+        >
+      </div>
+      <div class="secondPageButtonGroup">
+      <button onclick="goToFirstPage()"> Previous  Page</button>
+      <button onclick="goToThirdPage()"> Next  Page</button>
+    </div>
+      </div>
+      <div id="thirdPage">
+        <label for="progress-bar">Booking progress:</label>
+        <progress id="progress-bar" value="66" max="100"> 66% </progress>
+      <div class="elem-group">
+        <label for="facility-selection">Select facility You Need</label>
+        <select id="facility-selection" name="facility_preference" required>
+          <option value="">Choose a facility from the List</option>
+          <option value="swimmingGoggles">Swimming goggles</option>
+          <option value="surgBoard">Surf board</option>
+          <option value="kayak">Kayak</option>
+          <option value="paddleBoard">Paddle board</option>
+        </select>
+      </div>
+        <label for "color">Choose a color scheme for your room </label>
+        <input type="color" name="color" id="color" onChange="myChange()">
+  
+    <div id="myDemo" style="width:250px;height: 20px; background: rgb(42, 88, 189);"></div>
+      <hr />
+      <div class="elem-group">
+        <label for="message">Special requirement</label>
+        <textarea
+          id="message"
+          name="visitor_message"
+          placeholder="Tell us your special requirement."
+          required
+          onchange="saveToLocalStorage(event.target.id)"
+
+        ></textarea>
+        <label>
+          <input type="checkbox" name="terms" class="inline" required /> I
+          accept the
+          <a 
+            href="https://www.booking.com/content/terms.en-gb.html?aid=318615;label=Catch_All-EN-131006971401-uy4kgbqdSDaF703JKTuZyQS548793046955:pl:ta:p1:p2:ac:ap:neg:fi:tiaud-297601666995:dsa-1645396458701:lp9118983:li:dec:dm;ws=&gclid=CjwKCAjw9suYBhBIEiwA7iMhNNjouimtkncpqN9B2IBMNKIpdNvQkeQVi_bPuV8PMN_mndBmCJEDMxoCi9cQAvD_BwE/"
+            target="_blank" >terms and conditions</a
+          >
+        </label>
+      </div>
+      <button onclick="goToSecondPage()"> Previous  Page</button>
+    </br>
+    <div class="submitButton">
+      <button type="submit" onclick="submitData()">Submit your booking</button>
+    </div>
+    </div>
+    </form>
+    
+    <div id="fourthPage">
+      <h1>Your booking is confirmed ✔</h1>
+      <P>Booking Summary</P>
+    <table id="summaryTable">
+ 
+    </table>
+  </div>
+  
+  <script>
+      function dataSettingOnload() {
+        document.getElementById("secondPage").style.display = "none";
+        document.getElementById("thirdPage").style.display = "none";
+        document.getElementById("fourthPage").style.display = "none";
+        startReifen();
+      }
+
+      window.onload = dataSettingOnload();
+
+  </script>
   </body>
 </html>

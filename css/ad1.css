@@ -93,6 +93,10 @@
     margin-left: -40vw;
     opacity: 0;
   }
+  50% {
+    margin-left: 0;
+    opacity: 1;
+  }
 
   100% {
     margin-left: 0;
@@ -133,7 +137,7 @@
 }
 .orewa::after {
   position: absolute;
-  transform: translate(-250%, 100%);
+  transform: translate(-200%, 50%);
   content: "";
   animation: spin 5s linear;
   animation-iteration-count: 2;
@@ -152,12 +156,12 @@
 }
 .come {
   position: absolute;
-  font-family: Monospace;
+  font-family: Georgia, serif;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   animation-name: come;
-  animation-duration: 18s;
+  animation-duration: 15s;
   animation-iteration-count: 1;
 }
 
@@ -173,15 +177,21 @@
   49% {
     font-size: 35px;
     opacity: 1;
+    text-shadow: 0 0 10px lightblue, 0 0 20px lightblue, 0 0 30px lightblue,
+      0 0 40px skyblue, 0 0 50px skyblue, 0 0 60px skyblue;
   }
 
   75% {
     font-size: 45px;
     color: aliceblue;
+    text-shadow: 0 0 5px lightblue, 0 0 10px lightblue, 0 0 15px lightblue,
+      0 0 20px skyblue, 0 0 25px skyblue, 0 0 30px skyblue;
   }
 
   100% {
     font-size: 35px;
     color: #105aca;
+    text-shadow: 0 0 10px lightblue, 0 0 20px lightblue, 0 0 30px lightblue,
+      0 0 40px skyblue, 0 0 50px skyblue, 0 0 60px skyblue;
   }
 }

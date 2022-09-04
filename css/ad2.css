@@ -14,5 +14,285 @@
 }
 
 .carAds {
+  position: relative;
+  background-image: url("../resource/High\ way.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 20vh;
+  width: 38vw;
+  overflow: hidden;
+}
+
+#auto {
+  position: absolute;
+  width: 210px;
+  bottom: 15px;
+}
+
+#wheel1 {
+  translate: none;
+  rotate: none;
+  scale: 0.78;
+  transform: translate3d(0px, 0px, 0px) rotate(-565.12deg);
+  position: absolute;
+  bottom: 0px;
+  left: -317px;
+  z-index: 2;
+}
+#wheel2 {
+  translate: none;
+  rotate: none;
+  scale: 0.75;
+  transform: translate3d(0px, 0px, 0px) rotate(-895.905deg);
+  position: absolute;
+  bottom: 28px;
+  left: 26px;
+  z-index: 2;
+}
+
+#autoContainer,
+#wheel2 {
+  animation-name: moveCar;
+  animation-duration: 3s;
+  animation-delay: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+@keyframes moveCar {
+  0% {
+    margin-left: -0px;
+    opacity: 0;
+  }
+  49% {
+    margin-left: -0px;
+    opacity: 0;
+  }
+
+  50% {
+    margin-left: -0px;
+    opacity: 1;
+  }
+
+  100% {
+    margin-left: 300px;
+    opacity: 1;
+  }
+}
+
+#wheel1 {
+  animation-name: movewheel1;
+  animation-duration: 3s;
+  animation-delay: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+@keyframes movewheel1 {
+  0% {
+    margin-left: -0px;
+    opacity: 0;
+  }
+  49% {
+    margin-left: -0px;
+    opacity: 0;
+  }
+
+  50% {
+    margin-left: -0px;
+    opacity: 1;
+  }
+
+  100% {
+    margin-left: 357px;
+  }
+}
+
+.discount {
+  font-family: "Arial,Helvetica,sans-serif; Sans";
+  font-size: large;
+  color: rgb(236, 147, 29);
+  font-weight: 800;
+  position: absolute;
+  bottom: 35px;
+  left: 30px;
+  animation-name: fade;
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+}
+
+@keyframes fade {
+  from {
+    left: -300px;
+    opacity: 0;
+  }
+  80% {
+    left: 30px;
+    opacity: 0;
+  }
+  90% {
+    left: 30px;
+    opacity: 0;
+    transform: scale(1.2);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.name2 {
+  position: absolute;
+  font-size: 15px;
+  font-style: italic;
+  top: 8px;
+  right: 5px;
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #bd1313 67%,
+    #9ec21d 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.newModel {
+  font-family: "Arial,Helvetica,sans-serif; Sans";
+  font-size: large;
+  color: rgb(236, 147, 29);
+  font-weight: 800;
+  position: absolute;
+  bottom: 60px;
+  left: 30px;
+  animation-name: fade;
+  animation-duration: 4s;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+}
+
+@keyframes fade {
+  from {
+    left: -300px;
+    opacity: 0;
+  }
+  80% {
+    left: 30px;
+    opacity: 0;
+  }
+  90% {
+    left: 30px;
+    opacity: 0;
+    transform: scale(1.2);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.call {
+  font-family: "Arial,Helvetica,sans-serif; Sans";
+  font-size: large;
+  color: rgb(236, 147, 29);
+  font-weight: 800;
+  position: absolute;
+  bottom: 10px;
+  left: 30px;
+  animation-name: fadecall;
+  animation-duration: 7s;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+}
+
+@keyframes fadecall {
+  from {
+    left: -300px;
+    opacity: 0;
+  }
+  80% {
+    left: 30px;
+    opacity: 0;
+  }
+  90% {
+    left: 30px;
+    opacity: 1;
+    transform: translateX(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-5px);
+  }
+}
+#restartButton {
+  position: absolute;
+  background: #4b62a1 0.8;
+  border-radius: 400px;
+  box-shadow: #9898c9 0 8px 12px -8px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: Inter, Helvetica, "Segoe UI Emoji", NotoColorEmoji,
+    "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols,
+    -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans",
+    sans-serif;
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 12px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+  z-index: 5;
+}
+button:hover {
+  border: 2px solid black;
+}
+
+.board {
+  position: absolute;
+  width: 100%;
+  animation-name: dashboard;
+  animation-duration: 1.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes dashboard {
+  0% {
+    margin-top: 40vh;
+    opacity: 0;
+  }
+  15% {
+    margin-top: 0;
+    opacity: 1;
+  }
+  90% {
+    margin-top: 0;
+    opacity: 1;
+  }
+  100% {
+    margin-top: 0;
+    opacity: 0;
+  }
 }
